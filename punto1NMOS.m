@@ -19,6 +19,16 @@ JS = 1.0e-8;
 VDS=3;
 VGS=3;
 VDD=3;
+%Calculo de Cox:
+epsilon_0 = 8.854e-12; % Permitividad del vacío en F/m
+epsilon_r_SiO2 = 3.9;  % Permitividad relativa del SiO2 (óxido de puerta)
+% Calcular la permitividad dieléctrica del óxido (epsilon_ox)
+epsilon_ox = epsilon_r_SiO2 * epsilon_0;
+% Calcular Cox en F/m^2
+Cox_F_per_m2 = epsilon_ox / TOX;
+% Convertir Cox a uF/m^2 (microfaradios por metro cuadrado)
+% 1 uF = 1e-6 F
+Cox= Cox_F_per_m2 / 1e-6;
 % consigna me pide1/2*un*Cox*W/Leff*(1+lambda*VDS) in units of mA/V² 
 Cox= 3.8367e+03;
 Coxb= Cox * 10^-6;
